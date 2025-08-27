@@ -44,3 +44,19 @@ cardBox.addEventListener('click', function (e) {
 
     }
 })
+
+
+
+
+// heart icon functionality
+const heartIcon = document.getElementsByClassName('fa-heart')
+const heartCount = getId('heart-count')
+
+cardBox.addEventListener('click',function(e){
+    if(e.target.className.includes('fa-heart')){
+        const heartNum = Number(heartCount.innerText)
+        const favList = heartNum+1
+        heartCount.innerText= favList
+        e.target.style.color = '#ff0000'  
+    }
+})
