@@ -21,7 +21,7 @@ cardBox.addEventListener('click', function (e) {
         const callCharge = 20
         const currentCoinNum = coinNumber - callCharge;
         if (currentCoinNum < 0) {
-            alert('no  balnce')
+            alert('You dont have enough coins! You need at least 20 coins to make a call')
             return;
         }
         coin.innerText = currentCoinNum
@@ -62,7 +62,28 @@ cardBox.addEventListener('click',function(e){
 })
 
 
+
+// clear button functionality
 getId('clear-btn').addEventListener('click',function(){
     const historyBox = getId('history')
     historyBox.innerHTML=''
+})
+
+
+
+// copy button functionality 
+const copyBtn = document.getElementsByClassName('copy-btn')
+const copyCount= getId('copy-count');
+
+cardBox.addEventListener('click',function(e){
+    if(e.target.className.includes('copy-btn')){
+        const copyBtn= e.target
+        const copyNum= Number(copyCount.innerText)+1
+        copyCount.innerText= copyNum
+
+        const cardNumber = copyBtn.parentNode.parentNode.children[3].innerText
+        navigator.clipboard.writeText(cardNumber)
+        alert('copied : ' + cardNumber)
+
+    }
 })
