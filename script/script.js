@@ -60,3 +60,9 @@ cardBox.addEventListener('click',function(e){
         e.target.style.color = '#ff0000'  
     }
 })
+
+
+getId('clear-btn').addEventListener('click',function(){
+    const historyBox = getId('history')
+    historyBox.innerHTML=''
+})
